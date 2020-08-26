@@ -78,19 +78,19 @@ export const Navigation = () => {
               href='/'
               target='_blank'
               title="link to the Instagram account El templo">
-              <RiInstagramLine size={16} aria-hidden="true"/>
+              <RiInstagramLine size={24} aria-hidden="true"/>
             </NavigationLink>
             <NavigationLink
               href='/'
               target='_blank'
               title="link to the Twitter account El templo">
-              <RiTwitterLine size={16} aria-hidden="true"/>
+              <RiTwitterLine size={24} aria-hidden="true"/>
             </NavigationLink>
             <NavigationLink
               href='/'
               target='_blank'
               title="link to the Discord account El templo">
-              <RiDiscordLine size={16} aria-hidden="true"/>
+              <RiDiscordLine size={24} aria-hidden="true"/>
             </NavigationLink>
           </div>
 				</div>
@@ -131,7 +131,7 @@ export const Navigation = () => {
 
         .Navigation-socialMedia {
           display: flex;
-          margin-top: 1rem;
+          align-items: center;
         }
 
         @media screen and (min-width: 768px) {
@@ -150,10 +150,6 @@ export const Navigation = () => {
             justify-content: flex-end;
             margin-top: 0;
             position: relative;
-          }
-
-          .Navigation-socialMedia {
-            margin-top: 0;
           }
         }
 

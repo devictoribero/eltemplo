@@ -10,10 +10,10 @@ function Home () {
       <HomeHeader />
       <OurBrands/>
 			<main>
-        <Container isBoxed>
-          <AboutUs/>
-        </Container>
+        <AboutUs/>
         <Benefits/>
+        <FindUs/>
+        <ContactUs/>
 			</main>
 			
       <style jsx>{`
@@ -141,6 +141,20 @@ function HomeHeader() {
   )
 }
 
+function HomeSection({children}) {
+  return (
+    <section>
+      {children}
+      <style jsx>{`
+        section {
+          padding-top: 4rem;
+          padding-bottom: 4rem;
+        }
+      `}</style>
+    </section>
+  )
+}
+
 
 function OurBrands () {
   return (
@@ -154,14 +168,12 @@ function OurBrands () {
       </ul>
       <style jsx>{`
         section {
-          padding-top: 4rem;
-          padding-bottom: 4rem;
           background-color: var(--c-background-light);
         }
-
+        
         ul {
           margin: 0;
-          padding: 0;
+          padding: 4rem 0;
           display: flex;
           overflow-x: auto;
         }
@@ -188,35 +200,26 @@ function OurBrands () {
 }
 function AboutUs () {
   return (
-    <section>
-      <Title size={titleSizes.giant} as={titleTags.h2} spacelessTop>
-        Acerca de <br/>El Templo Gaming
-      </Title>
-      <Typography size='large'>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ut felis et elit rhoncus tempor. Mauris nec dolor a urna suscipit luctus. Praesent at arcu egestas eros ultrices dignissim.
-      </Typography>
+    <Container isBoxed>
+      <HomeSection>
+        <Title size={titleSizes.giant} as={titleTags.h2} spacelessTop>
+          Acerca de <br/>El Templo Gaming
+        </Title>
+        <Typography size='large'>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ut felis et elit rhoncus tempor. Mauris nec dolor a urna suscipit luctus. Praesent at arcu egestas eros ultrices dignissim.
+        </Typography>
 
-      <Typography size='large'>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ut felis et elit rhoncus tempor.
-      </Typography>
-
-      <style jsx>{`
-        section {
-          padding-top: 3rem;
-          padding-bottom: 4rem;
-        }
-
-        span {
-          color: var(--c-background-pale);
-        }
-      `}</style>
-    </section>
+        <Typography size='large'>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ut felis et elit rhoncus tempor.
+        </Typography>
+      </HomeSection>    
+    </Container>
   )
 }
 
 function Benefits () {
   return (
-    <section>
+    <HomeSection>
       <Container isBoxed>
         <Title size={titleSizes.giant} as={titleTags.h2} spacelessTop>
           ¿Qué encontrarás <br/> en El Templo?
@@ -248,15 +251,6 @@ function Benefits () {
         </ul>
       </Container>
       <style jsx>{`
-        section {
-          padding-top: 3rem;
-          padding-bottom: 3rem;
-        }
-
-        span {
-          color: var(--c-background-pale);
-        }
-
         ul {
           margin: 2rem 0 0;
           padding: 0;
@@ -279,6 +273,144 @@ function Benefits () {
           }
         }
       `}</style>
-    </section>
+    </HomeSection>
+  )
+}
+
+function FindUs() {
+  return (
+    <HomeSection>
+      <Container isBoxed>
+        <Title size={titleSizes.giant} as={titleTags.h2} spacelessTop>
+          Como encontrarnos
+        </Title>
+
+        <Typography size='large'>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ut felis et elit rhoncus tempor. Mauris nec dolor a urna suscipit luctus. Praesent at arcu egestas eros ultrices dignissim.
+        </Typography>
+
+        <Typography size='large'>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ut felis et elit rhoncus tempor.
+        </Typography>
+
+        <Title size={titleSizes.l} as={titleTags.h4}>Cuando estamos abiertos</Title>
+        <div className='schedule'>
+          <Typography size='large' spacelessTop spacelessBottom>
+            De lunes a jueves <time>10:00h</time> - <time>24:00h</time>
+          </Typography>
+          <Typography size='large' spacelessTop spacelessBottom>
+            De viernes a sábado <time>10:00h</time> - <time>02:00h</time>
+          </Typography>
+        </div>
+
+        <Title size={titleSizes.l} as={titleTags.h4}>Donde estamos</Title>
+
+        <div id='map'></div>
+
+      </Container>
+      <style jsx>{`
+        .schedule {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .schedule span {
+          margin-bottom: 0.5rem;
+        }
+
+        time {
+          font-weight: bold;
+        }
+
+        #map {
+          width: 100%;
+          height: 300px;
+          background-color: var(--c-background-pale);
+          border-radius: 10px;
+        }
+      `}</style>
+    </HomeSection>
+  )
+}
+
+function ContactUs() {
+  return (
+    <HomeSection>
+      <Container isBoxed>
+        <Title size={titleSizes.giant} as={titleTags.h2} spacelessTop>
+          ¿Alguna duda? <br/> Contacta con nosotros
+        </Title>
+
+        <Typography size='large'>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ut felis et elit rhoncus tempor. Mauris nec dolor a urna suscipit luctus. Praesent at arcu egestas eros ultrices dignissim.
+        </Typography>
+
+        <form>
+          <div className='ContactUs-field'>
+            <label>Tu nombre</label>
+            <input placeholder='Ej: victor' />
+          </div>
+
+          <div className='ContactUs-field'>
+            <label>Tu correo electrónico</label>
+            <input placeholder='Ej: victor@eltemplo.com' />
+          </div>
+
+          <div className='ContactUs-field'>
+            <label>¿Que quieres decirnos?</label>
+            <textarea placeholder="Muy buen trabajo chicos! Muchas felicidades!"/>
+          </div>
+
+          <Button type='submit' theme='accent' size='large'>Enviar mi mensaje</Button>
+        </form>
+      </Container>
+      <style jsx>{`
+        form {
+          margin-top: 2rem; 
+        }
+
+        .ContactUs-field {margin-bottom: 1.5rem;}
+        .ContactUs-field:last-child {margin-bottom: 3rem;}
+
+        label {
+          font-weight: 600;
+          font-family: var(--ff-title);
+          margin-bottom: 0.5rem;
+          text-transform: uppercase;
+          display: block;
+        }
+
+        input {
+          min-height: 60px;
+        }
+
+        textarea {
+          min-height: 150px;
+        }
+
+        input, textarea {
+          border: none;
+          display: block;
+          width: 100%;
+          border-radius: 5px;
+          padding: 0.5rem 1rem;
+          box-sizing: border-box;
+          background-color: var(--c-background-light);
+          
+          color: var(--c-background-pale);
+          font-weight: 500;
+          font-size: 1rem;
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+          color: var(--c-background-pale);
+          font-weight: 500;
+          font-size: 1rem;
+          opacity: 0.75;
+          font-family: var(--ff-text);
+        }
+      `}</style>
+    </HomeSection>
   )
 }

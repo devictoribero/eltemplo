@@ -35,19 +35,16 @@ export function Button({
 	className,
 	children,
 	leftIcon,
-	disabled,
 	...other
 }) {
-	const themeCalculated = disabled ? THEMES.DEFAULT : theme
 	const classNames = [
-		`is--${themeCalculated}`,
+		`is--${theme}`,
 		`is--${size}`,
 		`is--${shape}`,
 		`${elevation ? "is--elevation" : ""}`,
 		`${ghost ? "is--ghost" : ""}`,
 		`${fullWidth ? "is--full-width" : ""}`,
 		`${border ? "" : "is--borderless"}`,
-		`${disabled ? "is--disabled" : ""}`,
 		className
 	].join(" ")
 
@@ -63,9 +60,6 @@ export function Button({
 
 			<style jsx>{`
         button {
-          font-weight: 600;
-          font-family: var(--ff-text);
-          letter-spacing: 0.25px;
           
           display: inline-flex;
           justify-content: center;
@@ -74,6 +68,10 @@ export function Button({
           border: 2px solid transparent;
           white-space: nowrap;
           box-sizing: border-box;
+
+          text-transform: uppercase;
+          font-family: var(--ff-title);
+          font-weight: bold;
           
           cursor: pointer;
           transition: box-shadow ease-out 0.15s, background-color ease-out 0.15s, border-color ease-out 0.15s;
@@ -156,7 +154,6 @@ export function Button({
           color: #e0e1e2;
         }
 
-        .is--xsmall { padding: 0.2rem 0.5rem; font-size: 0.75rem; }
         .is--small { padding: 0.4rem 0.75rem; font-size: 0.8rem; }
         .is--medium { padding: 0.5rem 1rem; font-size: 1rem; }
         .is--large { padding: 0.75rem 1.25rem; font-size: 1.1rem; }
@@ -178,13 +175,6 @@ export function Button({
         .is--icon-left {
           margin-right: 0.25rem;
         }
-
-        .is--disabled {cursor: initial;}
-        .is--disabled:hover {
-          background-color: var(--c-grey-light);
-          border-color: var(--c-grey-light);
-          color: var(--c-light-dark);
-        }
       `}</style>
 		</button>
 	)
@@ -202,6 +192,5 @@ Button.propTypes = {
 	elevation: PropTypes.bool,
 	border: PropTypes.bool,
 	leftIcon: PropTypes.node,
-	disabled: PropTypes.bool,
 	children: PropTypes.node,
 }

@@ -38,6 +38,7 @@ export const NavigationLink = ({
 
         .text {
           position: relative;
+          display: flex;
         }
 
         .text:after {
