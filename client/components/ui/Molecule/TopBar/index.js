@@ -18,6 +18,7 @@ export function TopBar() {
           display: flex;
           align-items: center;
           justify-content: space-between;
+          z-index: 1;
         }
 
         @media screen and (min-width: 768px) {
