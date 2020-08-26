@@ -75,21 +75,18 @@ export const Navigation = () => {
           </div>
           <div className='Navigation-socialMedia'>
             <NavigationLink
-              size='small'
               href='/'
               target='_blank'
               title="link to the Instagram account El templo">
               <RiInstagramLine size={16} aria-hidden="true"/>
             </NavigationLink>
             <NavigationLink
-              size='small'
               href='/'
               target='_blank'
               title="link to the Twitter account El templo">
               <RiTwitterLine size={16} aria-hidden="true"/>
             </NavigationLink>
             <NavigationLink
-              size='small'
               href='/'
               target='_blank'
               title="link to the Discord account El templo">
@@ -156,7 +153,7 @@ export const Navigation = () => {
           }
 
           .Navigation-socialMedia {
-            margin-top: 0.25rem;
+            margin-top: 0;
           }
         }
 
