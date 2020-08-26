@@ -8,6 +8,10 @@ export function TopBar() {
       <Navigation />
       <style jsx>{`
         header {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
           min-height: 50px;
           padding-left: 1rem;
           padding-right: 1rem;

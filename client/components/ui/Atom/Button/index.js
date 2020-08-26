@@ -2,7 +2,6 @@ import React from "react"
 import PropTypes from "prop-types"
 
 const THEMES = {
-	DEFAULT: "default",
 	PRIMARY: "primary",
 	ACCENT: "accent",
 	WHITE: "white"
@@ -26,7 +25,7 @@ export function Button({
 	role = "button",
 	onClick = () => {},
 	label,
-	theme = THEMES.DEFAULT,
+	theme = THEMES.PRIMARY,
 	size = SIZES.MEDIUM,
 	shape = SHAPES.ROUNDED,
 	ghost = false,
@@ -64,7 +63,6 @@ export function Button({
 
 			<style jsx>{`
         button {
-          color: var(--c-grey-dark);
           font-weight: 600;
           font-family: var(--ff-text);
           letter-spacing: 0.25px;
@@ -73,14 +71,15 @@ export function Button({
           justify-content: center;
           align-items: center;
           border-radius: 5px;
-          border-width: 2px;
-          border-style: solid;
+          border: 2px solid transparent;
           white-space: nowrap;
           box-sizing: border-box;
           
           cursor: pointer;
           transition: box-shadow ease-out 0.15s, background-color ease-out 0.15s, border-color ease-out 0.15s;
         }
+
+        button svg { color: currentColor; }
         
         .is--primary {
           border-color: var(--c-primary);
@@ -145,32 +144,18 @@ export function Button({
         }
         .is--accent:focus {outline-color: var(--c-accent-dark);}
 
-        .is--default {
-          background-color: var(--c-grey-light);
-          border-color: var(--c-grey-light);
-          color: var(--c-light-dark);
-        }
-        .is--default:hover,
-        .is--default:focus {
-          background-color: var(--c-grey-lightest);
-          border-color: var(--c-grey-lightest);
-          color: var(--c-light-dark);
-        }
-
-        .is--default.is--ghost {
+        .is--white.is--ghost {
+          border-color: white;
           background-color: transparent;
-          border-color: var(--c-grey-light);
-          color: var(--c-light-dark);
+          color: white;
         }
-        .is--default.is--ghost:hover,
-        .is--default.is--ghost:focus {
-          background-color: var(--c-grey-light);
-          border-color: var(--c-grey-light);
-          color: var(--c-light-dark);
+        .is--white.is--ghost:hover,
+        .is--white.is--ghost:focus {
+          border-color: var(--c-white);
+          background-color: var(--c-white);
+          color: #e0e1e2;
         }
 
-        .is--primary svg { color: white; }
-        
         .is--xsmall { padding: 0.2rem 0.5rem; font-size: 0.75rem; }
         .is--small { padding: 0.4rem 0.75rem; font-size: 0.8rem; }
         .is--medium { padding: 0.5rem 1rem; font-size: 1rem; }

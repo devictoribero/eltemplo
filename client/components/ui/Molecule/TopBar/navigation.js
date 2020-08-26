@@ -21,10 +21,10 @@ export const Navigation = () => {
 	const buttonOpenMenu = (
 		<div>
 			<Button
+        theme='white'
 				size='small'
-				elevation={false}
-				ghost
-				border={false}
+        border={false}
+        ghost
 				onClick={handleToggleMenu}
 				aria-label='open menu'>
         <RiMenu3Line size={24} />
@@ -56,10 +56,10 @@ export const Navigation = () => {
 				{isOpen && (
           <div className='Navigation-close'>
             <Button
+              theme='white'
               size='small'
-              elevation={false}
-              ghost
               border={false}
+              ghost
               onClick={handleToggleMenu}
               aria-label='close menu'>
               <RiCloseLine size={26} />
@@ -113,7 +113,7 @@ export const Navigation = () => {
 
         .Navigation-menu.is-open {
           bottom: 0;
-          background-color: #120813;
+          background-color: var(--c-background);
           border-bottom-left-radius: 20px;
           border-bottom-right-radius: 20px;
           box-shadow: 0 15px 20px -5px rgba(1,1,1,0.2);
@@ -156,7 +156,7 @@ export const Navigation = () => {
           }
 
           .Navigation-socialMedia {
-            margin-top: 0.5rem;
+            margin-top: 0.25rem;
           }
         }
 
@@ -164,15 +164,6 @@ export const Navigation = () => {
           .Navigation-socialMedia {
             margin-left: 3rem;
             position: relative;
-          }
-          .Navigation-socialMedia:before {
-            content: "";
-            position: absolute;
-            width: 10px;
-            height: 1px;
-            background-color: white;
-            top: 50%;
-            left: -2rem;
           }
         }
       `}</style>

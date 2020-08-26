@@ -3,7 +3,8 @@ import PropTypes from "prop-types"
 
 export function Typography({
 	align = "left",
-	gutterBottom = true,
+	spacelessTop,
+	spacelessBottom,
 	size = "medium",
 	children,
 	...rest
@@ -11,7 +12,8 @@ export function Typography({
 	const classes = [
 		`is-aligned--${align}`,
 		`is--${size}`,
-		gutterBottom ? "has-bottom-space" : ""
+		spacelessTop ? "is--spaceless-top" : "",
+		spacelessBottom ? "is--spaceless-bottom" : "",
 	].join(" ")
   
 	return (
@@ -21,12 +23,15 @@ export function Typography({
       p {
         line-height: 1.5;
         letter-spacing: 0.25px;
-				margin: 0;
-				color: var(--c-grey-darkest);
+				color: #e0e1e2;
       }
 
-      .has-bottom-space {
-        margin-bottom: 1.5rem;
+			.is--spaceless-top {
+				margin-top: 0 !important;
+			}
+			
+			.is--spaceless-bottom {
+				margin-bottom: 0 !important;
 			}
 			
 			.is--small {
