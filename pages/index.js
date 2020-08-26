@@ -15,6 +15,8 @@ function Home () {
         <FindUs/>
         <ContactUs/>
 			</main>
+
+      <Footer/>
 			
       <style jsx>{`
         /* color pallette
@@ -416,5 +418,35 @@ function ContactUs() {
         }
       `}</style>
     </HomeSection>
+  )
+}
+
+function Footer() {
+  return (
+    <footer>
+      <Container isBoxed>
+        <section>
+          <Title size={titleSizes.s} as={titleTags.h5}>Nuestras redes sociales</Title>
+          <ul>
+            <li><a>Instagram</a></li>
+            <li><a>Twitter</a></li>
+            <li><a>Discord</a></li>
+          </ul>
+
+        </section>
+      </Container>
+      <style jsx>{`
+        footer {
+          background-color: var(--c-background-dark);
+        }
+        
+        section {
+          padding: 4rem 0;
+        }
+
+        @media screen and (min-width: 768px) {
+        }
+      `}</style>
+    </footer>
   )
 }

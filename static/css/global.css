@@ -12,11 +12,14 @@
     "Helvetica Neue", sans-serif;
 
   --c-background: #1a1a2e;
-  --c-background-light: #1e1e36;
   --c-background-pale: #d6d6ff;
+  --c-background-light: #1e1e36;
+  --c-background-dark: #121221;
+
   --c-primary:  #0f3460;
   --c-primary-light:  #19477d;
   --c-primary-dark:  #0a284d;
+
   --c-accent: #6b54b6;
   --c-accent-light: #785fc7;
   --c-accent-dark: #58429e;
