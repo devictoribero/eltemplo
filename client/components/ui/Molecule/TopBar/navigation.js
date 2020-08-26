@@ -75,13 +75,13 @@ export const Navigation = () => {
           </div>
           <div className='Navigation-socialMedia'>
             <NavigationLink
-              href='/'
+              href='https://www.instagram.com/temploesports/'
               target='_blank'
               title="link to the Instagram account El templo">
               <RiInstagramLine size={24} aria-hidden="true"/>
             </NavigationLink>
             <NavigationLink
-              href='/'
+              href='https://twitter.com/temploesports'
               target='_blank'
               title="link to the Twitter account El templo">
               <RiTwitterLine size={24} aria-hidden="true"/>
