@@ -190,7 +190,7 @@ function AboutUs () {
   return (
     <section>
       <Title size={titleSizes.giant} as={titleTags.h2} spacelessTop>
-        Acerca de <span>El Templo</span>
+        Acerca de <br/>El Templo Gaming
       </Title>
       <Typography size='large'>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ut felis et elit rhoncus tempor. Mauris nec dolor a urna suscipit luctus. Praesent at arcu egestas eros ultrices dignissim.
@@ -202,8 +202,8 @@ function AboutUs () {
 
       <style jsx>{`
         section {
-          padding-top: 2rem;
-          padding-bottom: 2rem;
+          padding-top: 3rem;
+          padding-bottom: 4rem;
         }
 
         span {
@@ -219,7 +219,7 @@ function Benefits () {
     <section>
       <Container isBoxed>
         <Title size={titleSizes.giant} as={titleTags.h2} spacelessTop>
-          Beneficios de <span>El Templo</span>
+          ¿Qué encontrarás <br/> en El Templo?
         </Title>
 
         <Typography size='large'>
@@ -249,8 +249,8 @@ function Benefits () {
       </Container>
       <style jsx>{`
         section {
-          padding-top: 2rem;
-          padding-bottom: 2rem;
+          padding-top: 3rem;
+          padding-bottom: 3rem;
         }
 
         span {
