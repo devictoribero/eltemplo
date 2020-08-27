@@ -426,13 +426,16 @@ function Footer() {
     <footer>
       <Container isBoxed>
         <section>
-          <Title size={titleSizes.s} as={titleTags.h5}>Nuestras redes sociales</Title>
-          <ul>
-            <li><a href='https://www.instagram.com/temploesports/'>Instagram</a></li>
-            <li><a href='https://twitter.com/temploesports'>Twitter</a></li>
-            <li><a href=''>Discord</a></li>
-          </ul>
-
+          <div>
+            <Title size={titleSizes.s} as={titleTags.h5}>
+              <span className='inner-title'>Nuestras redes sociales</span>
+            </Title>
+            <ul>
+              <li><a href='https://www.instagram.com/temploesports/'><span className='text'>Instagram</span></a></li>
+              <li><a href='https://twitter.com/temploesports'><span className='text'>Twitter</span></a></li>
+              <li><a href=''><span className='text'>Discord</span></a></li>
+            </ul>
+          </div>
         </section>
       </Container>
       <style jsx>{`
@@ -442,6 +445,10 @@ function Footer() {
         
         section {
           padding: 4rem 0;
+        }
+
+        .inner-title {
+          color: var(--c-background-pale);
         }
 
         ul {
@@ -454,14 +461,40 @@ function Footer() {
         }
 
         a {
-          padding: 0.5rem 1rem;
+          position: relative;
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+          color: white;
+          font-weight: 500;
           text-decoration: none;
-          color: #e0e1e2;
+          font-family: var(--ff-title);
+          font-variant: all-small-caps;
           padding: 0.5rem 0;
-          display: block;
+          font-size: 1.15rem;
+        }
+        
+        a:focus {outline: none;}
+
+        .text {
+          position: relative;
+          display: flex;
         }
 
-        @media screen and (min-width: 768px) {
+        .text:after {
+          position: absolute;
+          bottom: -0.5rem;
+          content: "";
+          height: 5px;
+          background-color: var(--c-accent);
+          width: 0;
+          left: 0;
+          transition: 0.15s width ease-in;
+        }
+
+        a:hover .text:after,
+        a:focus .text:after {
+          width: 100%;
         }
       `}</style>
     </footer>

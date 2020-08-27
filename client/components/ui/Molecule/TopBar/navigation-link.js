@@ -62,7 +62,6 @@ export const NavigationLink = ({
           display: flex;
           align-items: center;
         }
-        
 
         @media screen and (min-width: 768px) {
           a {
