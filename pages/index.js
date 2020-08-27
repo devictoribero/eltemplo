@@ -1,5 +1,6 @@
 import {Layout} from "../client/components/ui/Organism/Layout"
 import {Button} from "../client/components/ui/Atom/Button"
+import {LinkButton} from "../client/components/ui/Atom/LinkButton"
 import {Typography} from "../client/components/ui/Atom/Typography"
 import {Container} from "../client/components/ui/Atom/Container"
 import {Title, titleSizes, titleTags} from "../client/components/ui/Atom/Title"
@@ -19,14 +20,6 @@ function Home () {
       <Footer/>
 			
       <style jsx>{`
-        /* color pallette
-         * #1a0c1b
-         * #200f21
-         * #382039
-         * #5a3d5c
-         * #f638dc
-         */
-
          main {
            padding-top: 5rem;
            background-image: url(/images/wallpaper-malzahar.jpg);
@@ -44,22 +37,28 @@ export default Home
 
 
 function HomeHeader() {
+  const textTitle = 'El centro gaming más grande de Barcelona'
+  const textSubtitle = 'Menos tiempos de espera, precios más bajos, más diversión y más comunidad. ¿A qué esperas?'
+  
   return (
     <section>
       <div className="home-hero-overlay"/>
       <Container>
         <div className='HomeHeader-inner'>
-          <Title size={titleSizes.giant} as={titleTags.h1} spacelessTop>
-            El centro gaming más grande de Barcelona
+          <Title
+            size={titleSizes.giant}
+            as={titleTags.h1}
+            spacelessTop>
+            {textTitle}
           </Title>
-          <p>Menos tiempos de espera, precios más bajos, más diversión y más comunidad. ¿A qué esperas?</p>
+          <p>{textSubtitle}</p>
           <div className='HomeHeader-buttons'>
-            <Button theme='primary' size='large'>
+            <LinkButton href='#about-us' theme='primary' size='large'>
               Saber más
-            </Button>
-            <Button theme='accent' size='large'>
+            </LinkButton>
+            <LinkButton href='#find-us' theme='accent' size='large'>
               Ver horarios
-            </Button>
+            </LinkButton>
           </div>
         </div>
       </Container>
@@ -142,9 +141,9 @@ function HomeHeader() {
   )
 }
 
-function HomeSection({children}) {
+function HomeSection({id, children}) {
   return (
-    <section>
+    <section id={id}>
       {children}
       <style jsx>{`
         section {
@@ -202,7 +201,7 @@ function OurBrands () {
 function AboutUs () {
   return (
     <Container isBoxed>
-      <HomeSection>
+      <HomeSection id='about-us'>
         <Title size={titleSizes.giant} as={titleTags.h2} spacelessTop>
           Acerca de <br/>Templo Gaming
         </Title>
@@ -280,7 +279,7 @@ function Benefits () {
 
 function FindUs() {
   return (
-    <HomeSection>
+    <HomeSection id='find-us'>
       <Container isBoxed>
         <Title size={titleSizes.giant} as={titleTags.h2} spacelessTop>
           Como encontrarnos
@@ -336,7 +335,7 @@ function FindUs() {
 
 function ContactUs() {
   return (
-    <HomeSection>
+    <HomeSection id='contact'>
       <Container isBoxed>
         <Title size={titleSizes.giant} as={titleTags.h2} spacelessTop>
           ¿Alguna duda? <br/> Contacta con nosotros

@@ -3,18 +3,50 @@ import PropTypes from 'prop-types'
 
 export const NavigationLink = ({
   href,
-  icon,
   children,
+  disabled,
   ...rest
 }) => {
-  const classnames = [
-    icon ? `has--icon` : '',
-  ].join(' ')
+  if (disabled) {
+    return (
+      <div>
+        {children}
+				<style jsx>{`
+          div {
+            position: relative;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            color: white;
+            font-weight: 500;
+            mine-height: 48px;
+            text-decoration: none;
+            letter-spacing: 2px;
+            border-radius: 3px;
+            font-family: var(--ff-title);
+            font-variant: all-small-caps;
+            padding: 1rem;
+            font-size: 1.5rem;
+            cursor: default;
+            opacity: 0.6;
+          }
+          
+          div:focus {outline: none;}
+
+          @media screen and (min-width: 768px) {
+            div {
+              margin-right: 0.15rem;
+              padding: 0.5rem 0.75rem;
+            }
+          }
+        `}</style>
+		</div>
+    )
+  }
 
 	return (
 		<NextLink href={href}>
-			<a className={classnames} {...rest}>
-        {icon && <span className='icon'>{icon}</span>}
+			<a {...rest}>
 				<span className='text'>{children}</span>
 				<style jsx>{`
         a {
@@ -55,12 +87,6 @@ export const NavigationLink = ({
         a:hover .text:after,
         a:focus .text:after {
           width: 100%;
-        }
-
-        .icon {
-          margin-right: 0.75rem;
-          display: flex;
-          align-items: center;
         }
 
         @media screen and (min-width: 768px) {

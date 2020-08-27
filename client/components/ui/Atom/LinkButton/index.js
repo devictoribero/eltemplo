@@ -1,11 +1,11 @@
-
 import React from "react"
 import PropTypes from "prop-types"
-import Link from "next/link"
+import Link from 'next/link'
 
 const THEMES = {
-	DEFAULT: "default",
-	PRIMARY: "primary"
+	PRIMARY: "primary",
+	ACCENT: "accent",
+	WHITE: "white"
 }
 
 const SIZES = {
@@ -35,141 +35,160 @@ export function LinkButton({
 	isFullWidth = false,
 	className,
 	children,
-	iconRight,
 	...rest
 }) {
-	let classNames = [
+	const classNames = [
 		`is--${theme}`,
 		`is--${size}`,
 		`is--${shape}`,
-		`${isOneLine ? "is--isOneLine" : ""}`,
 		`${elevation ? "is--elevation" : ""}`,
 		`${ghost ? "is--ghost" : ""}`,
-		`${border ? "" : "is--borderless"}`,
 		`${isFullWidth ? "is--full-width" : ""}`,
+		`${border ? "" : "is--borderless"}`,
 		className
 	].join(" ")
 
-
-	return(
-		<>
-			<Link href={href} >
-				<a className={classNames} onClick={onClick} {...rest}>
-					{children}
-					{iconRight && <span className='icon is--icon-right'>{iconRight}</span>}
-				</a>
-			</Link>  
+	return (
+    <>
+      <Link href={href} >
+        <a className={classNames} onClick={onClick} {...rest}>
+          {children}
+        </a>
+      </Link>  
 
 			<style jsx>{`
-          a {
-            color: var(--grey-dark);
-            font-weight: 600;
-            font-family: var(--ff-text);
-            letter-spacing: 0.25px;
-            text-decoration: none;
-            
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 3px;
-            border-width: 2px;
-            border-style: solid;
-            box-sizing: border-box;
-            
-            cursor: pointer;
-            transition: box-shadow ease 0.25s, background-color ease 0.15s;
-          }
+        a {
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 5px;
+          border: 2px solid transparent;
+          white-space: nowrap;
+          box-sizing: border-box;
 
-          .icon {
-            display: flex;
-            align-items: center;
-          }
-          .is--icon-right {
-            margin-left: 0.25rem;
-          }
+          text-transform: uppercase;
+          font-family: var(--ff-title);
+          font-weight: bold;
+          text-decoration: none;
+          
+          cursor: pointer;
+          transition: box-shadow ease-out 0.15s, background-color ease-out 0.15s, border-color ease-out 0.15s;
+        }
 
-          .is--isOneLine {
-            white-space: nowrap;
-          }
-          
-          
-          .is--primary {
-            border-color: var(--c-primary);
-            background-color: var(--c-primary);
-            color: white;
-          }
-          .is--primary:hover {
-            border-color: var(--c-primary-dark);
-            background-color: var(--c-primary-dark);
-            color: white;
-          }
-  
-          .is--primary.is--ghost {
-            border-color: var(--c-primary);
-            background-color: transparent;
-            color: var(--c-primary);
-          }
-          .is--primary.is--ghost:hover {
-            border-color: var(--c-primary);
-            background-color: var(--c-primary);
-            color: white;
-          }
-  
-          .is--default {
-            background-color: var(--c-grey-light);
-            border-color: var(--c-grey-light);
-            color: var(--c-light-dark);
-          }
-          .is--default:hover {
-            background-color: var(--c-grey-lightest);
-            border-color: var(--c-grey-lightest);
-            color: var(--c-light-dark);
-          }
-  
-          .is--default.is--ghost {
-            background-color: transparent;
-            border-color: var(--c-grey-light);
-            color: var(--c-light-dark);
-          }
-          .is--default.is--ghost:hover {
-            background-color: var(--c-grey-light);
-            border-color: var(--c-grey-light);
-            color: var(--c-light-dark);
-          }
-  
-          .is--primary svg { color: white; }
-          
-          .is--xsmall { padding: 0.2rem 0.5rem; font-size: 0.75rem; }
-          .is--small { padding: 0.4rem 0.75rem; font-size: 0.8rem; }
-          .is--medium { padding: 0.5rem 1rem; font-size: 1rem; }
-          .is--large { padding: 0.75rem 1.25rem; font-size: 1.1rem; }
-          .is--giant { padding: 1rem 2rem; font-size: 1.25rem; }
-  
-          .is--square { border-radius: 0px; }
-          .is--rounded { border-radius: 5px; }
-          .is--pill { border-radius: 999px; }
-          
-          .is--elevation:hover { box-shadow: 0 4px 8px -3px rgba(1, 1, 1, 0.15); }
-          .is--borderless { border: none; }
-          .is--full-width {width: 100%;}
-        `}</style>
+        a svg { color: currentColor; }
+        
+        .is--primary {
+          border-color: var(--c-primary);
+          background-color: var(--c-primary);
+          color: white;
+        }
+        .is--primary:hover,
+        .is--primary:focus {
+          border-color: var(--c-primary-dark);
+          background-color: var(--c-primary-dark);
+          color: white;
+        }
+        .is--primary:focus {outline-color: var(--c-primary-darkest);}
+        
+        .is--accent {
+          border-color: var(--c-accent);
+          background-color: var(--c-accent);
+          color: white;
+        }
+        .is--accent:hover,
+        .is--accent:focus {
+          border-color: var(--c-accent-dark);
+          background-color: var(--c-accent-dark);
+          color: white;
+        }
+        .is--accent:focus {outline-color: var(--c-accent-darkest);}
+
+        .is--white {
+          border-color: white;
+          background-color: white;
+          color: var(--c-grey-dark);
+        }
+        .is--white:hover,
+        .is--white:focus {
+          border-color: var(--c-grey-lightest);
+          background-color: var(--c-grey-lightest);
+        }
+        .is--white:focus {outline-color: var(--c-grey);}
+
+        .is--primary.is--ghost {
+          border-color: var(--c-primary);
+          background-color: transparent;
+          color: var(--c-primary);
+        }
+        .is--primary.is--ghost:hover,
+        .is--primary.is--ghost:focus {
+          border-color: var(--c-primary);
+          background-color: var(--c-primary);
+          color: white;
+        }
+
+        .is--accent.is--ghost {
+          border-color: var(--c-accent);
+          background-color: transparent;
+          color: var(--c-accent);
+        }
+        .is--accent.is--ghost:hover,
+        .is--accent.is--ghost:focus {
+          border-color: var(--c-accent);
+          background-color: var(--c-accent);
+          color: white;
+        }
+        .is--accent:focus {outline-color: var(--c-accent-dark);}
+
+        .is--white.is--ghost {
+          border-color: white;
+          background-color: transparent;
+          color: white;
+        }
+        .is--white.is--ghost:hover,
+        .is--white.is--ghost:focus {
+          border-color: var(--c-white);
+          background-color: var(--c-white);
+          color: #e0e1e2;
+        }
+
+        .is--small { padding: 0.4rem 0.75rem; font-size: 0.8rem; }
+        .is--medium { padding: 0.5rem 1rem; font-size: 1rem; }
+        .is--large { padding: 0.75rem 1.25rem; font-size: 1.1rem; }
+        .is--giant { padding: 1rem 2rem; font-size: 1.25rem; }
+
+        .is--square { border-radius: 0px; }
+        .is--rounded { border-radius: 5px; }
+        .is--pill { border-radius: 999px; }
+        
+        .is--elevation:hover,
+        .is--elevation:focus { box-shadow: 0 4px 8px -3px rgba(1, 1, 1, 0.15); }
+        .is--borderless { border: none; }
+        .is--full-width {width: 100%;}
+
+        .icon {
+          display: inline-flex;
+          align-items: center;
+        }
+        .is--icon-left {
+          margin-right: 0.25rem;
+        }
+      `}</style>
 		</>
 	)
 }
 LinkButton.propTypes = {
-	href: PropTypes.string,
-	onClick: PropTypes.func,
-	theme: PropTypes.oneOf(["default", "primary"]),
-	size: PropTypes.oneOf(["xsmall", "small", "medium", "large", "giant"]),
-	isExternalLink: PropTypes.bool,
-	shape: PropTypes.oneOf(["square", "rounded", "pill"]),
-	isOneLine: PropTypes.bool,
-	reverse: PropTypes.bool,
-	elevation: PropTypes.bool,
-	border: PropTypes.bool,
-	icon: PropTypes.node,
-	isFullWidth: PropTypes.bool,
+	theme: PropTypes.oneOf(Object.values(THEMES)),
+	size: PropTypes.oneOf(Object.values(SIZES)),
+	shape: PropTypes.oneOf(Object.values(SHAPES)),
 	ghost: PropTypes.bool,
 	className: PropTypes.string,
+	role: PropTypes.string,
+	onClick: PropTypes.func,
+	label: PropTypes.string,
+	isFullWidth: PropTypes.bool,
+	elevation: PropTypes.bool,
+	border: PropTypes.bool,
+	leftIcon: PropTypes.node,
 	children: PropTypes.node,
 }

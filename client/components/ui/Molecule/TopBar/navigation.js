@@ -69,9 +69,9 @@ export const Navigation = () => {
 				<div className='Navigation-inner'>
           <div className='Navigation-links'>
             <NavigationLink href='/'>Inicio</NavigationLink>
-            <NavigationLink href='/contacto'>Contacto</NavigationLink>
-            <NavigationLink href='/noticias'>Noticias</NavigationLink>
-            <NavigationLink href='/torneos'>Torneos</NavigationLink>
+            <NavigationLink href='/#contact'>Contacto</NavigationLink>
+            <NavigationLink href='/noticias' disabled>Noticias</NavigationLink>
+            <NavigationLink href='/torneos' disabled>Torneos</NavigationLink>
           </div>
           <div className='Navigation-socialMedia'>
             <NavigationLink
