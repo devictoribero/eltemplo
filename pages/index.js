@@ -89,7 +89,6 @@ function HomeHeader() {
         }
         
         .HomeHeader-inner {
-          padding: 1rem;
           box-sizing: border-box;
         }
 
@@ -205,7 +204,7 @@ function AboutUs () {
     <Container isBoxed>
       <HomeSection>
         <Title size={titleSizes.giant} as={titleTags.h2} spacelessTop>
-          Acerca de <br/>El Templo Gaming
+          Acerca de <br/>Templo Gaming
         </Title>
         <Typography size='large'>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ut felis et elit rhoncus tempor. Mauris nec dolor a urna suscipit luctus. Praesent at arcu egestas eros ultrices dignissim.
@@ -224,7 +223,7 @@ function Benefits () {
     <HomeSection>
       <Container isBoxed>
         <Title size={titleSizes.giant} as={titleTags.h2} spacelessTop>
-          ¿Qué encontrarás <br/> en El Templo?
+          ¿Qué encontrarás <br/> en Templo Gaming?
         </Title>
 
         <Typography size='large'>
@@ -406,6 +405,7 @@ function ContactUs() {
           color: var(--c-background-pale);
           font-weight: 500;
           font-size: 1rem;
+          max-width: 100%;
         }
 
         input::placeholder,
@@ -428,9 +428,9 @@ function Footer() {
         <section>
           <Title size={titleSizes.s} as={titleTags.h5}>Nuestras redes sociales</Title>
           <ul>
-            <li><a>Instagram</a></li>
-            <li><a>Twitter</a></li>
-            <li><a>Discord</a></li>
+            <li><a href='https://www.instagram.com/temploesports/'>Instagram</a></li>
+            <li><a href='https://twitter.com/temploesports'>Twitter</a></li>
+            <li><a href=''>Discord</a></li>
           </ul>
 
         </section>
@@ -442,6 +442,23 @@ function Footer() {
         
         section {
           padding: 4rem 0;
+        }
+
+        ul {
+          margin: 0;
+          padding: 0;
+        }
+
+        li {
+          list-style: none;
+        }
+
+        a {
+          padding: 0.5rem 1rem;
+          text-decoration: none;
+          color: #e0e1e2;
+          padding: 0.5rem 0;
+          display: block;
         }
 
         @media screen and (min-width: 768px) {

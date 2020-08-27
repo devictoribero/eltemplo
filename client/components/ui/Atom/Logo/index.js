@@ -5,7 +5,7 @@ export function Logo() {
 	return (
 		<>
 			<Link href='/'>
-				<a>El templo</a>
+				<a>Templo Gaming</a>
 			</Link>
 
 			<style jsx>{`

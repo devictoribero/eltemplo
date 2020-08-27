@@ -77,19 +77,19 @@ export const Navigation = () => {
             <NavigationLink
               href='https://www.instagram.com/temploesports/'
               target='_blank'
-              title="link to the Instagram account El templo">
+              title="link to the Instagram account Templo Gaming">
               <RiInstagramLine size={24} aria-hidden="true"/>
             </NavigationLink>
             <NavigationLink
               href='https://twitter.com/temploesports'
               target='_blank'
-              title="link to the Twitter account El templo">
+              title="link to the Twitter account Templo Gaming">
               <RiTwitterLine size={24} aria-hidden="true"/>
             </NavigationLink>
             <NavigationLink
               href='/'
               target='_blank'
-              title="link to the Discord account El templo">
+              title="link to the Discord account Templo Gaming">
               <RiDiscordLine size={24} aria-hidden="true"/>
             </NavigationLink>
           </div>
