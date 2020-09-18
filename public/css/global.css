@@ -79,7 +79,7 @@ figure {
 
 @font-face {
   font-family: "Rajdhani";
-  src: url("/static/fonts/Rajdhani-Bold.ttf") format("ttf");
+  src: url("/fonts/Rajdhani-Bold.ttf") format("ttf");
   font-weight: 900;
   font-style: normal;
   font-display: swap;
@@ -87,7 +87,7 @@ figure {
 
 @font-face {
   font-family: "Rajdhani";
-  src: url("/static/fonts/Rajdhani-Bold.ttf") format("ttf");
+  src: url("/fonts/Rajdhani-Bold.ttf") format("ttf");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -95,7 +95,7 @@ figure {
 
 @font-face {
   font-family: "Rajdhani";
-  src: url("/static/fonts/Rajdhani-SemiBold.ttf") format("ttf");
+  src: url("/fonts/Rajdhani-SemiBold.ttf") format("ttf");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -103,7 +103,7 @@ figure {
 
 @font-face {
   font-family: "Rajdhani";
-  src: url("/static/fonts/Rajdhani-Medium.ttf") format("ttf");
+  src: url("/fonts/Rajdhani-Medium.ttf") format("ttf");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -111,7 +111,7 @@ figure {
 
 @font-face {
   font-family: "Rajdhani";
-  src: url("/static/fonts/Rajdhani-Regular.ttf") format("ttf");
+  src: url("/fonts/Rajdhani-Regular.ttf") format("ttf");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -119,7 +119,7 @@ figure {
 
 @font-face {
   font-family: "Rajdhani";
-  src: url("/static/fonts/Rajdhani-Light.ttf") format("ttf");
+  src: url("/fonts/Rajdhani-Light.ttf") format("ttf");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
