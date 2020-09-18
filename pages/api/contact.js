@@ -9,7 +9,7 @@ export default (req, res) => {
       const {name, email, message} = JSON.parse(body)
 
       sendmail({
-        from: 'no-reply@yourdomain.com',
+        from: 'victor.ribero3@gmail.com',
         to: 'victor.ribero3@gmail.com',
         subject: 'test sendmail',
         html: 'Mail of test sendmail ',
