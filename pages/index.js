@@ -1,3 +1,4 @@
+import {useState} from 'react'
 import {Layout} from "../client/components/ui/Organism/Layout"
 import {Button} from "../client/components/ui/Atom/Button"
 import {LinkButton} from "../client/components/ui/Atom/LinkButton"
@@ -5,6 +6,7 @@ import {Typography} from "../client/components/ui/Atom/Typography"
 import {Container} from "../client/components/ui/Atom/Container"
 import {Title, titleSizes, titleTags} from "../client/components/ui/Atom/Title"
 import {RiInstagramLine, RiTwitterLine, RiMessage2Line} from 'react-icons/ri'
+import axios from 'axios'
 import Map from '../client/components/ui/Molecule/Map'
 
 function Home () {
@@ -386,6 +388,40 @@ function FindUs() {
 }
 
 function ContactUs() {
+  const [name, setName] = useState('Victor')
+  const [email, setEmail] = useState('victorasdasd@asdasd.com')
+  const [message, setMessage] = useState('Me encanta el centro')
+  const [hasFieldsWrong, setHasFieldsWrong] = useState(false)
+  const [hasContacted, setHasContacted] = useState(false)
+  const [hasGeneralError, setHasGeneralError] = useState(false)
+  
+  const handleSubmit = e => {
+    e.preventDefault()
+
+    if (!name || !email || !message) {
+      setHasFieldsWrong(true)
+      return
+    }
+
+    axios
+      .post('/api/contact', {name, email, message})
+      .then(response => {
+        console.log(response)
+        setHasContacted(true)
+        setHasGeneralError(false)
+        setHasFieldsWrong(false)
+        console.log('ok')
+        console.log(response)
+      })
+      .catch(error => {
+        console.log('KO')
+        console.error(error)
+        setHasGeneralError(true)
+      })
+  }
+
+
+
   return (
     <HomeSection id='contact'>
       <Container isBoxed>
@@ -401,25 +437,58 @@ function ContactUs() {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ut felis et elit rhoncus tempor. Mauris nec dolor a urna suscipit luctus. Praesent at .
         </Typography>
 
-        <form>
-          <div className='ContactUs-field'>
-            <label htmlFor='name'>Tu nombre</label>
-            <input id='name' placeholder='Ej: victor' />
-          </div>
+        {!hasContacted && (
+          <form onSubmit={handleSubmit}>
+            <div className='ContactUs-field'>
+              <label htmlFor='name'>Tu nombre</label>
+              <input
+                id='name'
+                value={name}
+                placeholder='Ej: victor'
+                required
+                onChange={e => setName(e.target.value)}/>
+            </div>
 
-          <div className='ContactUs-field'>
-            <label htmlFor='email'>Tu correo electrónico</label>
-            <input id='email' placeholder='Ej: victor@eltemplo.com' />
-          </div>
+            <div className='ContactUs-field'>
+              <label htmlFor='email'>Tu correo electrónico</label>
+              <input
+                id='email'
+                type='email'
+                value={email}
+                placeholder='Ej: victor@eltemplo.com'
+                required
+                onChange={e => setEmail(e.target.value)}/>
+            </div>
 
-          <div className='ContactUs-field'>
-            <label htmlFor='message'>¿Que quieres decirnos?</label>
-            <textarea id='message' placeholder="Muy buen trabajo chicos! Muchas felicidades!"/>
+            <div className='ContactUs-field'>
+              <label htmlFor='message'>¿Que quieres decirnos?</label>
+              <textarea
+                id='message'
+                value={message}
+                required
+                placeholder="Muy buen trabajo chicos! Muchas felicidades!"
+                onChange={e => setMessage(e.target.value)}/>
+            </div>
+            {hasFieldsWrong && (
+              <div className='messageHasContacted messageHasContacted--error'>
+                Algunos de los campos no tiene un formato correcto. Por favor revísalos.
+              </div>
+            )}
+            {hasGeneralError && (
+              <div className='messageHasContacted messageHasContacted--error'>
+                Algo no ha ido como esperabamos. Por favor intentalo más tarde.
+              </div>
+            )}
+            <Button type='submit' theme='accent' size='large'>Enviar mi mensaje</Button>
+          </form>
+        )}
+        {hasContacted && (
+          <div className='messageHasContacted'>
+            Tu mensaje se ha enviado a "El Templo Gaming" correctamente.
           </div>
-
-          <Button type='submit' theme='accent' size='large'>Enviar mi mensaje</Button>
-        </form>
+        )}
       </Container>
+
       <style jsx>{`
         form {
           margin-top: 2rem; 
@@ -434,6 +503,30 @@ function ContactUs() {
           margin-bottom: 0.5rem;
           text-transform: uppercase;
           display: block;
+        }
+
+        .messageHasContacted {
+          border-left: 5px solid var(--c-background-pale);
+          border-radius: 5px;
+          padding-left: 2rem;
+          box-sizing: border-box;
+          background-color: var(--c-background-light);
+          color: var(--c-background-pale);
+          font-weight: 500;
+          font-size: 1.125rem;
+          min-height: 100px;
+          display: flex;
+          align-items: center;
+          line-height: 1.35;
+          letter-spacing: 0;
+        }
+
+        .messageHasContacted.messageHasContacted--error {
+          min-height: 75px;
+          margin-bottom: 1.25rem;
+          background-color: #381d1d;
+          color: #f1a2a2;
+          border-color: #f1a2a2;
         }
 
         input,
@@ -462,6 +555,17 @@ function ContactUs() {
           font-weight: 500;
           font-size: 1rem;
           max-width: 100%;
+        }
+
+        input,
+        textarea,
+        input::placeholder,
+        textarea::placeholder {
+          color: var(--c-background-pale);
+          font-weight: 500;
+          font-size: 16px;
+          opacity: 0.95;
+          font-family: var(--ff-text);
         }
 
         input::placeholder,
