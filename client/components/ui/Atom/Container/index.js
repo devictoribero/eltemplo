@@ -22,8 +22,8 @@ export function Container({isBoxed, className, children, ...rest}) {
 				
 				@media screen and (min-width: 350px) {
 					div {
-						padding-left: 0.75rem;
-						padding-right: 0.75rem;
+						padding-left: 1rem;
+						padding-right: 1rem;
 					}
 				}
 
@@ -42,7 +42,6 @@ export function Container({isBoxed, className, children, ...rest}) {
 						max-width: 1300px;
 					}
 				}
-
 			`}</style>
 		</div>
 	)

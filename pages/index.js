@@ -4,16 +4,18 @@ import {LinkButton} from "../client/components/ui/Atom/LinkButton"
 import {Typography} from "../client/components/ui/Atom/Typography"
 import {Container} from "../client/components/ui/Atom/Container"
 import {Title, titleSizes, titleTags} from "../client/components/ui/Atom/Title"
+import {RiInstagramLine, RiTwitterLine, RiMessage2Line} from 'react-icons/ri'
+import Map from '../client/components/ui/Molecule/Map'
 
 function Home () {
 	return (
 		<Layout>
       <HomeHeader />
-      <OurBrands/>
+      {/* <OurBrands/> */}
 			<main>
-        <AboutUs/>
-        <Benefits/>
         <FindUs/>
+        <AboutUs/>
+        {/* <Benefits/> */}
         <ContactUs/>
 			</main>
 
@@ -21,12 +23,12 @@ function Home () {
 			
       <style jsx>{`
          main {
-           padding-top: 5rem;
-           background-image: url(/images/wallpaper-malzahar.jpg);
-           background-image: linear-gradient(to bottom, rgba(26,26,46,0.8), rgba(26,26,46,1)), url(/images/wallpaper-malzahar.jpg);
-           background-size: cover;  
-           background-position: top right;
-           background-repeat: no-repeat;
+          padding-top: 3rem;
+          background-image: url(/images/wallpaper-malzahar.jpg);
+          background-image: linear-gradient(to bottom, rgba(26,26,46,0.8), rgba(26,26,46,1)), url(/images/wallpaper-malzahar.jpg);
+          background-size: cover;  
+          background-position: top right;
+          background-repeat: no-repeat;
          }
 			`}</style>
 		</Layout>
@@ -37,9 +39,6 @@ export default Home
 
 
 function HomeHeader() {
-  const textTitle = 'El centro gaming más grande de Barcelona'
-  const textSubtitle = 'Menos tiempos de espera, precios más bajos, más diversión y más comunidad. ¿A qué esperas?'
-  
   return (
     <section>
       <div className="home-hero-overlay"/>
@@ -49,16 +48,35 @@ function HomeHeader() {
             size={titleSizes.giant}
             as={titleTags.h1}
             spacelessTop>
-            {textTitle}
+            El Templo Gaming
           </Title>
-          <p>{textSubtitle}</p>
+          <p>¡Estamos en fase BETA abierta! Pásate por el centro y danos tu feedback</p>
+          <p>¡Disfruta de equipos de alto rendimiento y de un centro gaming pensado para la comunidad!</p>
           <div className='HomeHeader-buttons'>
-            <LinkButton href='#about-us' theme='primary' size='large'>
-              Saber más
+            <LinkButton href='#find-us' theme='primary' size='large' style={{marginRight: '0.5rem'}}>
+              Donde estamos
             </LinkButton>
-            <LinkButton href='#find-us' theme='accent' size='large'>
-              Ver horarios
+            <LinkButton href='#contact' theme='accent' size='large'>
+              Contactanos
             </LinkButton>
+          </div>
+          
+          <div className='HomeHeader-tags'>
+            <HomeTagContact
+              icon={<RiInstagramLine size={16} style={{marginRight: '0.25rem'}}/>}
+              href='https://www.instagram.com/temploesports/'>
+              temploesports
+            </HomeTagContact>
+            <HomeTagContact
+              icon={<RiTwitterLine size={16} style={{marginRight: '0.25rem'}}/>}
+              href='https://twitter.com/TemploEsports'>
+              temploesports
+            </HomeTagContact>
+            <HomeTagContact
+              icon={<RiMessage2Line size={16} style={{marginRight: '0.25rem'}}/>}
+              href='asdasdasdasd'>
+              650311541
+            </HomeTagContact>
           </div>
         </div>
       </Container>
@@ -67,9 +85,9 @@ function HomeHeader() {
           position: relative;
           display: flex;
           align-items: center;
-          min-height: 450px;
-          padding-top: calc(3rem + 50px);
-          padding-bottom: 3rem;
+          min-height: 500px;
+          padding-top: calc(3rem + 75px);
+          padding-bottom: 4rem;
           box-sizing: border-box;
         }
         
@@ -91,22 +109,20 @@ function HomeHeader() {
           box-sizing: border-box;
         }
 
-        h1 {
-          font-size: 2rem;
-          font-weight: 900;
-        }
-
         p {
           color: #e0e1e2;
           font-size: 1.25rem;
           line-height: 1.5;
+          margin-top: 0;
         }
 
         .HomeHeader-buttons {
-          display: grid;
-          grid-gap: 0.5rem;
           margin-top: 2rem;
-          grid-template-columns: 1fr 1fr;
+        }
+
+        .HomeHeader-tags {
+          margin-top: 0.5rem;
+          display: flex;
         }
 
         @media screen and (min-width: 768px) {
@@ -116,10 +132,6 @@ function HomeHeader() {
 
           .HomeHeader-inner {
             max-width: 550px;
-          }
-
-          .HomeHeader-buttons {
-            width: 350px;
           }
         }
 
@@ -138,6 +150,43 @@ function HomeHeader() {
         }
     `}</style>
     </section>
+  )
+}
+
+function HomeTagContact({icon, href, children}) {
+  return (
+    <a href={href}>
+      {icon}
+      {children}
+
+      <style jsx>{`
+        a {
+          align-items: center;
+          border-radius: 5px;
+          background-color: rgba(255,255,255, 0.1);
+          display: flex;
+          font-size: 0.75rem;
+          padding: 0.5rem 0.5rem;
+          text-decoration: none;
+          color: #f2f2f2;
+          transition: background-color 0.15s ease;
+        }
+
+        a:not(:first-child) {
+          margin-left: 0.25rem;
+        }
+
+        a:hover {
+          background-color: rgba(255,255,255, 0.2);
+        }
+
+        @media screen and (min-width: 768px) {
+          a {
+            font-size: 0.8rem;
+          }
+        }
+      `}</style>
+    </a>
   )
 }
 
@@ -305,7 +354,9 @@ function FindUs() {
 
         <Title size={titleSizes.l} as={titleTags.h4}>Donde estamos</Title>
 
-        <div id='map'></div>
+        <div id='map'>
+          <Map/>
+        </div>
 
       </Container>
       <style jsx>{`
@@ -323,6 +374,7 @@ function FindUs() {
         }
 
         #map {
+          position: relative;
           width: 100%;
           height: 300px;
           background-color: var(--c-background-pale);
@@ -351,18 +403,18 @@ function ContactUs() {
 
         <form>
           <div className='ContactUs-field'>
-            <label>Tu nombre</label>
-            <input placeholder='Ej: victor' />
+            <label htmlFor='name'>Tu nombre</label>
+            <input id='name' placeholder='Ej: victor' />
           </div>
 
           <div className='ContactUs-field'>
-            <label>Tu correo electrónico</label>
-            <input placeholder='Ej: victor@eltemplo.com' />
+            <label htmlFor='email'>Tu correo electrónico</label>
+            <input id='email' placeholder='Ej: victor@eltemplo.com' />
           </div>
 
           <div className='ContactUs-field'>
-            <label>¿Que quieres decirnos?</label>
-            <textarea placeholder="Muy buen trabajo chicos! Muchas felicidades!"/>
+            <label htmlFor='message'>¿Que quieres decirnos?</label>
+            <textarea id='message' placeholder="Muy buen trabajo chicos! Muchas felicidades!"/>
           </div>
 
           <Button type='submit' theme='accent' size='large'>Enviar mi mensaje</Button>
@@ -384,6 +436,11 @@ function ContactUs() {
           display: block;
         }
 
+        input,
+        textarea {
+          font-size: 1rem;
+        }
+
         input {
           min-height: 60px;
         }
@@ -397,7 +454,7 @@ function ContactUs() {
           display: block;
           width: 100%;
           border-radius: 5px;
-          padding: 0.5rem 1rem;
+          padding: 1rem 1rem;
           box-sizing: border-box;
           background-color: var(--c-background-light);
           
@@ -411,7 +468,7 @@ function ContactUs() {
         textarea::placeholder {
           color: var(--c-background-pale);
           font-weight: 500;
-          font-size: 1rem;
+          font-size: 16px;
           opacity: 0.75;
           font-family: var(--ff-text);
         }

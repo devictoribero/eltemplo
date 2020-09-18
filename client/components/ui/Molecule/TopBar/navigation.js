@@ -3,6 +3,7 @@ import {Button} from "../../../ui/Atom/Button"
 import {RiMenu3Line, RiCloseLine} from "react-icons/ri"
 import {RiInstagramLine, RiTwitterLine, RiDiscordLine} from 'react-icons/ri'
 import {NavigationLink} from './navigation-link'
+import {Container} from '../../Atom/Container'
 
 export const Navigation = () => {
 	const [isOpen, setIsOpen] = useState(false)
@@ -70,8 +71,6 @@ export const Navigation = () => {
           <div className='Navigation-links'>
             <NavigationLink href='/'>Inicio</NavigationLink>
             <NavigationLink href='/#contact'>Contacto</NavigationLink>
-            <NavigationLink href='/noticias' disabled>Noticias</NavigationLink>
-            <NavigationLink href='/torneos' disabled>Torneos</NavigationLink>
           </div>
           <div className='Navigation-socialMedia'>
             <NavigationLink

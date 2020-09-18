@@ -63,7 +63,7 @@ export function Title ({
 				}
 				
 				.is--giant {
-					font-size: 2.75rem;
+					font-size: 2.5rem;
 					font-weight: 900;
 					margin-bottom: 1.35rem;
 					margin-top: 5rem;
@@ -124,7 +124,7 @@ export function Title ({
 					}
 	
 					.is--xxxl {
-						font-size: 2.25rem;
+						font-size: 2.5rem;
 						font-weight: 900;
 						margin-bottom: 1.35rem;
 						margin-top: 4rem;
