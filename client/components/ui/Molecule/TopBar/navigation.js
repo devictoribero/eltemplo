@@ -47,7 +47,17 @@ export const Navigation = () => {
         }
       `}</style>
 		</div>
-	)
+  )
+  
+  const scrollToSelector = elementSelector => {
+    var element = document.querySelector(elementSelector);
+    element.scrollIntoView({ behavior: 'smooth', block: 'start'});
+  }
+
+  const handleClick = (e, selector) => {
+    e.preventDefault()
+    scrollToSelector(selector)
+  }
   
 	return (
 		<div className='Navigation'>
@@ -70,7 +80,9 @@ export const Navigation = () => {
 				<div className='Navigation-inner'>
           <div className='Navigation-links'>
             <NavigationLink href='/'>Inicio</NavigationLink>
-            <NavigationLink href='/#contact'>Contacto</NavigationLink>
+            <NavigationLink
+              href='/#contact'
+              onClick={e => handleClick(e, '#contact')}>Contacto</NavigationLink>
           </div>
           <div className='Navigation-socialMedia'>
             <NavigationLink

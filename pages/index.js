@@ -64,8 +64,8 @@ function HomeHeader() {
             spacelessTop>
             El Templo Gaming
           </Title>
-          <p>¡Estamos en fase BETA abierta! Pásate por el centro y danos tu opinión</p>
-          <p>¡Disfruta de equipos de alto rendimiento y de un centro gaming pensado para la comunidad!</p>
+          <p>¡Estamos en fase BETA abierta!</p>
+          <p>Ven a jugar con tus amigos y danos tu opinión. Disfruta de equipos de alto rendimiento y de un centro gaming pensado para la comunidad!</p>
           <div className='HomeHeader-buttons'>
             <LinkButton
               href='#find-us'
