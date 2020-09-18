@@ -9,7 +9,7 @@ import {RiInstagramLine, RiTwitterLine, RiMessage2Line} from 'react-icons/ri'
 import axios from 'axios'
 import Map from '../client/components/ui/Molecule/Map'
 
-const COORDINATES_EL_TEMPLO =  [41.384368, 2.156895]
+const COORDINATES_EL_TEMPLO_GAMING =  [41.383494, 2.158061]
 
 function Home () {
 	return (
@@ -43,6 +43,16 @@ export default Home
 
 
 function HomeHeader() {
+  const scrollToSelector = elementSelector => {
+    var element = document.querySelector(elementSelector);
+    element.scrollIntoView({ behavior: 'smooth', block: 'start'});
+  }
+
+  const handleClick = (e, selector) => {
+    e.preventDefault()
+    scrollToSelector(selector)
+  }
+
   return (
     <section>
       <div className="home-hero-overlay"/>
@@ -57,10 +67,19 @@ function HomeHeader() {
           <p>¡Estamos en fase BETA abierta! Pásate por el centro y danos tu opinión</p>
           <p>¡Disfruta de equipos de alto rendimiento y de un centro gaming pensado para la comunidad!</p>
           <div className='HomeHeader-buttons'>
-            <LinkButton href='#find-us' theme='primary' size='large' style={{marginRight: '0.5rem'}}>
+            <LinkButton
+              href='#find-us'
+              onClick={e => handleClick(e, '#find-us')}
+              theme='primary'
+              size='large'
+              style={{marginRight: '0.5rem'}}>
               Donde estamos
             </LinkButton>
-            <LinkButton href='#contact' theme='accent' size='large'>
+            <LinkButton
+              href='#contact'
+              onClick={e => handleClick(e, '#contact')}
+              theme='accent'
+              size='large'>
               Contactanos
             </LinkButton>
           </div>
@@ -94,7 +113,7 @@ function HomeHeader() {
           padding-bottom: 4rem;
           box-sizing: border-box;
         }
-        
+ 
         .home-hero-overlay {
           background-image: url('https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80');
           background-image: linear-gradient(180deg, rgba(26,26,46,1), rgba(26,26,46,0.5)), url('https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80');
@@ -107,10 +126,42 @@ function HomeHeader() {
           right: 0;
           bottom: 0;
           z-index: -1;
+          animation: blurIn 1s ease-in;
+        }
+
+        @keyframes blurIn {
+          from {
+            filter: blur(20px);
+          }
+          to {
+            filter: blur(0);
+          }
         }
         
         .HomeHeader-inner {
           box-sizing: border-box;
+          animation: fromBottom 0.5s ease-in, fadein 0.75s ease-in;
+          animation-delay: 0.25s;
+          animation-fill-mode: forwards;
+          opacity: 0;
+        }
+
+        @keyframes fromBottom {
+          from {
+            transform: translateY(10px);
+          }
+          to {
+            transform: translateX(0);
+          }
+        }
+  
+        @keyframes fadein {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
         }
 
         p {
@@ -348,29 +399,20 @@ function FindUs() {
         </Title>
 
         <Typography size='large'>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ut felis et elit rhoncus tempor. Mauris nec dolor a urna suscipit luctus. Praesent at arcu egestas eros ultrices dignissim.
-        </Typography>
-
-        <Typography size='large'>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ut felis et elit rhoncus tempor.
+          <strong>El Templo Gaming</strong> se encuentra en Calle Diputació 160, barrio de la Eixample (Barcelona).
         </Typography>
 
         <Title size={titleSizes.l} as={titleTags.h4}>Cuando estamos abiertos</Title>
         <div className='schedule'>
           <Typography size='large' spacelessTop spacelessBottom>
-            De lunes a jueves <time>10:00h</time> - <time>24:00h</time>
-          </Typography>
-          <Typography size='large' spacelessTop spacelessBottom>
-            De viernes a sábado <time>10:00h</time> - <time>02:00h</time>
+            De lunes a domingo <time>09:00h</time> a <time>22:30h</time>
           </Typography>
         </div>
 
-        <Title size={titleSizes.l} as={titleTags.h4}>Donde estamos</Title>
-
-
+        <Title size={titleSizes.l} as={titleTags.h4}>Ubicación</Title>
         <div id='map-wrapper'>
           <div id='map'>
-            <Map id='map-inner' center={COORDINATES_EL_TEMPLO}/>
+            <Map id='map-inner' center={COORDINATES_EL_TEMPLO_GAMING}/>
           </div>
         </div>
 

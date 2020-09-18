@@ -13,13 +13,13 @@ export default function MyMap({
 		<div id={id}>
 			<Map center={center} zoom={zoom}>
 				<div>
-					{/* <TileLayer url="https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png" /> */}
-					<TileLayer url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png" />
+					<TileLayer url="https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png" />
+					{/* <TileLayer url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png" /> */}
 					
 					<Marker position={center}>
 						<Popup>
 							<h2>El Templo Gaming</h2>
-							<p>Calle asda 215, 08045</p>
+							<p>Calle Diputació 160, 08011 Barcelona</p>
 						</Popup>
 					</Marker>
 				</div>
