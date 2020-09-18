@@ -399,7 +399,7 @@ function FindUs() {
         </Title>
 
         <Typography size='large'>
-          <strong>El Templo Gaming</strong> se encuentra en Calle Diputació 160, barrio de la Eixample (Barcelona).
+          <strong>El Templo Gaming</strong> se encuentra en Calle Diputació 160, Barcelona.
         </Typography>
 
         <Title size={titleSizes.l} as={titleTags.h4}>Cuando estamos abiertos</Title>
