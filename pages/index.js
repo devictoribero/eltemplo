@@ -319,11 +319,11 @@ function AboutUs () {
           Acerca de <br/>Templo Gaming
         </Title>
         <Typography size='large'>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ut felis et elit rhoncus tempor. Mauris nec dolor a urna suscipit luctus. Praesent at arcu egestas eros ultrices dignissim.
+          El Templo Gaming es un centro de alto rendimiento eSports que tiene como objetivo ofrecer un espacio competitivo y pensado al más mínimo detalle para aquellos que lo quieran disfrutar gracias a las instalaciones pensadas para la mejor experiencia de usuario, ambiente gaming y enfocados a crear comunidad.
         </Typography>
 
         <Typography size='large'>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ut felis et elit rhoncus tempor.
+          El centro está pensado para tus necesidades y comodidad independientemente de si quieres venir a pasarlo bien solo, con los amigos o a competir.
         </Typography>
       </HomeSection>    
     </Container>
@@ -456,9 +456,9 @@ function FindUs() {
 }
 
 function ContactUs() {
-  const [name, setName] = useState('Victor')
-  const [email, setEmail] = useState('victorasdasd@asdasd.com')
-  const [message, setMessage] = useState('Me encanta el centro')
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [message, setMessage] = useState('')
   const [hasFieldsWrong, setHasFieldsWrong] = useState(false)
   const [hasContacted, setHasContacted] = useState(false)
   const [hasGeneralError, setHasGeneralError] = useState(false)
@@ -512,7 +512,7 @@ function ContactUs() {
               <input
                 id='name'
                 value={name}
-                placeholder='Ej: victor'
+                placeholder='¿Cuál es tu nombre?'
                 required
                 onChange={e => setName(e.target.value)}/>
             </div>
@@ -523,7 +523,7 @@ function ContactUs() {
                 id='email'
                 type='email'
                 value={email}
-                placeholder='Ej: victor@eltemplo.com'
+                placeholder='¿Cuál es tu correo?'
                 required
                 onChange={e => setEmail(e.target.value)}/>
             </div>
@@ -534,7 +534,7 @@ function ContactUs() {
                 id='message'
                 value={message}
                 required
-                placeholder="Muy buen trabajo chicos! Muchas felicidades!"
+                placeholder="Escribe tu mensaje..."
                 onChange={e => setMessage(e.target.value)}/>
             </div>
             {hasFieldsWrong && (
