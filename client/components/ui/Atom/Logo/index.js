@@ -22,6 +22,7 @@ export function Logo() {
         font-size: 1.5rem;
         font-weight: 500;
         font-variant: all-small-caps;
+        animation: fromLeft 0.5s ease-in, fadein 0.5s ease-in;
       }
 
       span {
@@ -35,6 +36,24 @@ export function Logo() {
 
       img {
         width: 60px;
+      }
+
+      @keyframes fromLeft {
+        from {
+          transform: translateX(-10px);
+        }
+        to {
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes fadein {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
       }
     `}</style>
 		</>

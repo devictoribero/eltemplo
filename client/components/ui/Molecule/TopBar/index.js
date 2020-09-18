@@ -46,7 +46,7 @@ export function TopBar() {
           }
           
           header {
-            min-height: 75px;
+            min-height: 100px;
           }
 				}
 

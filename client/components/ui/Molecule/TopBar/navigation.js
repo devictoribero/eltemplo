@@ -95,7 +95,29 @@ export const Navigation = () => {
 				</div>
 			</div>
 
-			<style jsx>{`
+      <style jsx>{`
+        .Navigation {
+          animation: fromRight 0.5s ease-in, fadein 0.5s ease-in;
+        }
+
+        @keyframes fromRight {
+          from {
+            transform: translateX(10px);
+          }
+          to {
+            transform: translateX(0);
+          }
+        }
+  
+        @keyframes fadein {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+
         .Navigation-menu {
           display: none;
           z-index: 10001;
@@ -150,12 +172,17 @@ export const Navigation = () => {
             margin-top: 0;
             position: relative;
           }
+
+          .Navigation-socialMedia {
+            margin-top: 0.35rem;
+            margin-left: 2rem;
+            position: relative;
+          }
         }
 
         @media screen and (min-width: 992px) {
           .Navigation-socialMedia {
             margin-left: 3rem;
-            position: relative;
           }
         }
       `}</style>

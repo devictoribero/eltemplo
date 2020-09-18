@@ -9,6 +9,8 @@ import {RiInstagramLine, RiTwitterLine, RiMessage2Line} from 'react-icons/ri'
 import axios from 'axios'
 import Map from '../client/components/ui/Molecule/Map'
 
+const COORDINATES_EL_TEMPLO =  [41.384368, 2.156895]
+
 function Home () {
 	return (
 		<Layout>
@@ -52,7 +54,7 @@ function HomeHeader() {
             spacelessTop>
             El Templo Gaming
           </Title>
-          <p>¡Estamos en fase BETA abierta! Pásate por el centro y danos tu feedback</p>
+          <p>¡Estamos en fase BETA abierta! Pásate por el centro y danos tu opinión</p>
           <p>¡Disfruta de equipos de alto rendimiento y de un centro gaming pensado para la comunidad!</p>
           <div className='HomeHeader-buttons'>
             <LinkButton href='#find-us' theme='primary' size='large' style={{marginRight: '0.5rem'}}>
@@ -65,17 +67,17 @@ function HomeHeader() {
           
           <div className='HomeHeader-tags'>
             <HomeTagContact
-              icon={<RiInstagramLine size={16} style={{marginRight: '0.25rem'}}/>}
+              icon={<RiInstagramLine size={16}/>}
               href='https://www.instagram.com/temploesports/'>
               temploesports
             </HomeTagContact>
             <HomeTagContact
-              icon={<RiTwitterLine size={16} style={{marginRight: '0.25rem'}}/>}
+              icon={<RiTwitterLine size={16}/>}
               href='https://twitter.com/TemploEsports'>
               temploesports
             </HomeTagContact>
             <HomeTagContact
-              icon={<RiMessage2Line size={16} style={{marginRight: '0.25rem'}}/>}
+              icon={<RiMessage2Line size={16}/>}
               href='asdasdasdasd'>
               650311541
             </HomeTagContact>
@@ -87,7 +89,7 @@ function HomeHeader() {
           position: relative;
           display: flex;
           align-items: center;
-          min-height: 500px;
+          min-height: 60vh;
           padding-top: calc(3rem + 75px);
           padding-bottom: 4rem;
           box-sizing: border-box;
@@ -95,7 +97,7 @@ function HomeHeader() {
         
         .home-hero-overlay {
           background-image: url('https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80');
-          background-image: linear-gradient(180deg, rgba(21,32,43,1), rgba(21,32,43,0.5)), url('https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80');
+          background-image: linear-gradient(180deg, rgba(26,26,46,1), rgba(26,26,46,0.5)), url('https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80');
           background-size: cover;
           position: absolute;
           height: 100%;
@@ -129,7 +131,7 @@ function HomeHeader() {
 
         @media screen and (min-width: 768px) {
           section {
-            min-height: 600px
+            min-height: 70vh;
           }
 
           .HomeHeader-inner {
@@ -139,7 +141,7 @@ function HomeHeader() {
 
         @media screen and (min-width: 992px) {
           section {
-            min-height: 600px;
+            min-height: 95vh;
           }
 
           .HomeHeader-inner {
@@ -158,7 +160,9 @@ function HomeHeader() {
 function HomeTagContact({icon, href, children}) {
   return (
     <a href={href}>
-      {icon}
+      <span>
+        {icon}
+      </span>
       {children}
 
       <style jsx>{`
@@ -168,20 +172,27 @@ function HomeTagContact({icon, href, children}) {
           background-color: rgba(255,255,255, 0.1);
           display: flex;
           font-size: 0.75rem;
-          padding: 0.5rem 0.5rem;
+          padding: 0.35rem 0.5rem;
           text-decoration: none;
           color: #f2f2f2;
           transition: background-color 0.15s ease;
         }
 
+        
         a:not(:first-child) {
-          margin-left: 0.25rem;
+          margin-left: 0.35rem;
         }
-
+        
         a:hover {
           background-color: rgba(255,255,255, 0.2);
         }
-
+        
+        span {
+          display: flex;
+          align-items: center;
+          margin-right: 0.25rem;
+        }
+        
         @media screen and (min-width: 768px) {
           a {
             font-size: 0.8rem;
@@ -356,8 +367,11 @@ function FindUs() {
 
         <Title size={titleSizes.l} as={titleTags.h4}>Donde estamos</Title>
 
-        <div id='map'>
-          <Map/>
+
+        <div id='map-wrapper'>
+          <div id='map'>
+            <Map id='map-inner' center={COORDINATES_EL_TEMPLO}/>
+          </div>
         </div>
 
       </Container>
@@ -375,12 +389,24 @@ function FindUs() {
           font-weight: bold;
         }
 
+        #map-wrapper {
+          border-radius: 10px;
+          border: 10px solid var(--c-background);
+          box-shadow: 0 10px 15px 5px var(--c-background-dark);
+        }
+
         #map {
           position: relative;
           width: 100%;
-          height: 300px;
-          background-color: var(--c-background-pale);
+          height: 400px;
           border-radius: 10px;
+          background-color: var(--c-background-pale);
+        }
+
+        @media screen and (min-width: 768px) {
+          #map {
+            height: 400px;
+          }
         }
       `}</style>
     </HomeSection>

@@ -18,6 +18,7 @@ export default class MyDocument extends Document {
 					/>
 
 					<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@700;800&family=Teko:wght@600;700&display=swap" rel="stylesheet"/>
+					<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
 				</Head>
 				<body>
 					<Main />
