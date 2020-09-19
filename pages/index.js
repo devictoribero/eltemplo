@@ -458,6 +458,7 @@ function FindUs() {
 function ContactUs() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
+  const [subject, setSubject] = useState('')
   const [message, setMessage] = useState('')
   const [hasFieldsWrong, setHasFieldsWrong] = useState(false)
   const [hasContacted, setHasContacted] = useState(false)
@@ -472,17 +473,13 @@ function ContactUs() {
     }
 
     axios
-      .post('/api/contact', {name, email, message})
+      .post('/api/contact', {name, email, subject, message})
       .then(response => {
-        console.log(response)
         setHasContacted(true)
         setHasGeneralError(false)
         setHasFieldsWrong(false)
-        console.log('ok')
-        console.log(response)
       })
       .catch(error => {
-        console.log('KO')
         console.error(error)
         setHasGeneralError(true)
       })
@@ -504,7 +501,7 @@ function ContactUs() {
               <input
                 id='name'
                 value={name}
-                placeholder='¿Cuál es tu nombre?'
+                placeholder='Ej: Alex'
                 required
                 onChange={e => setName(e.target.value)}/>
             </div>
@@ -515,9 +512,19 @@ function ContactUs() {
                 id='email'
                 type='email'
                 value={email}
-                placeholder='¿Cuál es tu correo?'
+                placeholder='Ej: empleado@eltemploesports.com'
                 required
                 onChange={e => setEmail(e.target.value)}/>
+            </div>
+
+            <div className='ContactUs-field'>
+              <label htmlFor='subject'>Asunto</label>
+              <input
+                id='subject'
+                value={subject}
+                placeholder='Ej: Quiero reservar un ordenador, tengo una duda...'
+                required
+                onChange={e => setSubject(e.target.value)}/>
             </div>
 
             <div className='ContactUs-field'>
