@@ -526,7 +526,6 @@ function ContactUs() {
                 required
                 onChange={e => setSubject(e.target.value)}/>
             </div>
-
             <div className='ContactUs-field'>
               <label htmlFor='message'>¿Que quieres decirnos?</label>
               <textarea
