@@ -497,14 +497,6 @@ function ContactUs() {
           ¿Alguna duda? <br/> Contacta con nosotros
         </Title>
 
-        <Typography size='large'>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ut felis et elit rhoncus tempor. Mauris nec dolor a urna suscipit luctus. Praesent at arcu egestas eros ultrices dignissim. it amet, conhgfh ispata ghalou tripacius.
-        </Typography>
-
-        <Typography size='large'>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ut felis et elit rhoncus tempor. Mauris nec dolor a urna suscipit luctus. Praesent at .
-        </Typography>
-
         {!hasContacted && (
           <form onSubmit={handleSubmit}>
             <div className='ContactUs-field'>
