@@ -18,7 +18,7 @@ export default function MyMap({
 					
 					<Marker position={center}>
 						<Popup>
-							<h2>El Templo Gaming</h2>
+							<h2>El Templo eSports</h2>
 							<p>Calle Diputació 160, 08011 Barcelona</p>
 						</Popup>
 					</Marker>

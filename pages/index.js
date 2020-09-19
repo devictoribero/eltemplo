@@ -62,7 +62,7 @@ function HomeHeader() {
             size={titleSizes.giant}
             as={titleTags.h1}
             spacelessTop>
-            El Templo Gaming
+            El Templo eSports
           </Title>
           <p>¡Estamos en fase BETA abierta!</p>
           <p>Ven a jugar con tus amigos y danos tu opinión. Disfruta de equipos de alto rendimiento y de un centro gaming pensado para la comunidad!</p>
@@ -316,10 +316,10 @@ function AboutUs () {
     <Container isBoxed>
       <HomeSection id='about-us'>
         <Title size={titleSizes.giant} as={titleTags.h2} spacelessTop>
-          Acerca de <br/>Templo Gaming
+          Acerca de <br/>Templo eSports
         </Title>
         <Typography size='large'>
-          El Templo Gaming es un centro de alto rendimiento eSports que tiene como objetivo ofrecer un espacio competitivo y pensado al más mínimo detalle para aquellos que lo quieran disfrutar gracias a las instalaciones pensadas para la mejor experiencia de usuario, ambiente gaming y enfocados a crear comunidad.
+          El Templo eSports es un centro de alto rendimiento eSports que tiene como objetivo ofrecer un espacio competitivo y pensado al más mínimo detalle para aquellos que lo quieran disfrutar gracias a las instalaciones pensadas para la mejor experiencia de usuario, ambiente gaming y enfocados a crear comunidad.
         </Typography>
 
         <Typography size='large'>
@@ -335,7 +335,7 @@ function Benefits () {
     <HomeSection>
       <Container isBoxed>
         <Title size={titleSizes.giant} as={titleTags.h2} spacelessTop>
-          ¿Qué encontrarás <br/> en Templo Gaming?
+          ¿Qué encontrarás <br/> en Templo eSports?
         </Title>
 
         <Typography size='large'>
@@ -399,7 +399,7 @@ function FindUs() {
         </Title>
 
         <Typography size='large'>
-          <strong>El Templo Gaming</strong> se encuentra en Calle Diputació 160, Barcelona.
+          <strong>El Templo eSports</strong> se encuentra en Calle Diputació 160, Barcelona.
         </Typography>
 
         <Title size={titleSizes.l} as={titleTags.h4}>Cuando estamos abiertos</Title>
@@ -552,7 +552,7 @@ function ContactUs() {
         )}
         {hasContacted && (
           <div className='messageHasContacted'>
-            Tu mensaje se ha enviado a "El Templo Gaming" correctamente.
+            Tu mensaje se ha enviado a "El Templo eSports" correctamente.
           </div>
         )}
       </Container>
