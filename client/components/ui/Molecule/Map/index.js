@@ -8,14 +8,16 @@ export default function MyMap({
 	width = "100%",
 	height = "100%",
 	center,
-	zoom = 14,
+	zoom = 15,
 }) {
 	return (
 		<div id={id}>
 			<Map center={center} zoom={zoom}>
 				<div>
 					{/* <TileLayer url="https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png" attribution={attribution}/> */}
-					<TileLayer url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png" />
+					<TileLayer
+						url={`https://{s}.tile.jawg.io/jawg-dark/{z}/{x}/{y}{r}.png?access-token=402GB5zMRcsyrMR3vU2pajrCoBgKWPQsT3N5aMcyColS1rrsbTo8EExZ2JtEyJUA`}
+						accessToken='402GB5zMRcsyrMR3vU2pajrCoBgKWPQsT3N5aMcyColS1rrsbTo8EExZ2JtEyJUA'/>
 					
 					<Marker position={center}>
 						<Popup>
