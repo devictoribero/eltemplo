@@ -16,8 +16,7 @@ export default function MyMap({
 				<div>
 					{/* <TileLayer url="https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png" attribution={attribution}/> */}
 					<TileLayer
-						url={`https://{s}.tile.jawg.io/jawg-dark/{z}/{x}/{y}{r}.png?access-token=402GB5zMRcsyrMR3vU2pajrCoBgKWPQsT3N5aMcyColS1rrsbTo8EExZ2JtEyJUA`}
-						accessToken='402GB5zMRcsyrMR3vU2pajrCoBgKWPQsT3N5aMcyColS1rrsbTo8EExZ2JtEyJUA'/>
+						url={`https://{s}.tile.jawg.io/jawg-dark/{z}/{x}/{y}{r}.png?access-token=${process.env.MAP_ACCESS_TOKEN}`} />
 					
 					<Marker position={center}>
 						<Popup>
