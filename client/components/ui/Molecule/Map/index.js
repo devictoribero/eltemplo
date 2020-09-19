@@ -14,8 +14,8 @@ export default function MyMap({
 		<div id={id}>
 			<Map center={center} zoom={zoom}>
 				<div>
-					<TileLayer url="https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png" attribution={attribution}/>
-					{/* <TileLayer url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png" /> */}
+					{/* <TileLayer url="https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png" attribution={attribution}/> */}
+					<TileLayer url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png" />
 					
 					<Marker position={center}>
 						<Popup>
