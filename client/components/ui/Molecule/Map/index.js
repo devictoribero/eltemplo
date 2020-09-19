@@ -1,7 +1,7 @@
 import PropTypes from "prop-types"
 import {Map, Marker, Popup, TileLayer} from "react-leaflet-universal"
 
-const attribution = '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+const MAP_ACCESS_TOKEN = '402GB5zMRcsyrMR3vU2pajrCoBgKWPQsT3N5aMcyColS1rrsbTo8EExZ2JtEyJUA'
 
 export default function MyMap({
 	id,
@@ -14,9 +14,8 @@ export default function MyMap({
 		<div id={id}>
 			<Map center={center} zoom={zoom}>
 				<div>
-					{/* <TileLayer url="https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png" attribution={attribution}/> */}
 					<TileLayer
-						url={`https://{s}.tile.jawg.io/jawg-dark/{z}/{x}/{y}{r}.png?access-token=${process.env.MAP_ACCESS_TOKEN}`} />
+						url={`https://{s}.tile.jawg.io/jawg-dark/{z}/{x}/{y}{r}.png?access-token=${MAP_ACCESS_TOKEN}`} />
 					
 					<Marker position={center}>
 						<Popup>
