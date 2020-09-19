@@ -1,6 +1,7 @@
 import PropTypes from "prop-types"
 import {Map, Marker, Popup, TileLayer} from "react-leaflet-universal"
-import {Title, titleSizes, titleTags} from "../../Atom/Title"
+
+const attribution = '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
 
 export default function MyMap({
 	id,
@@ -13,7 +14,7 @@ export default function MyMap({
 		<div id={id}>
 			<Map center={center} zoom={zoom}>
 				<div>
-					<TileLayer url="https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png" />
+					<TileLayer url="https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png" attribution={attribution}/>
 					{/* <TileLayer url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png" /> */}
 					
 					<Marker position={center}>
