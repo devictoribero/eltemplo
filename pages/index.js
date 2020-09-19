@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import {useState} from 'react'
 import {Layout} from "../client/components/ui/Organism/Layout"
 import {Button} from "../client/components/ui/Atom/Button"
@@ -14,6 +15,10 @@ const COORDINATES_EL_TEMPLO_GAMING =  [41.383494, 2.158061]
 function Home () {
 	return (
 		<Layout>
+      <Head>
+        <title>Centro esports de alto rendimiento en Barcelona | El Templo Esports</title>
+        <meta name='description' content='El Templo Esports es un centro gaming de alto rendimiento en Barcelona con un enfoque 100% a la comunidad. ¡Ven a jugar con tus amigos!'/>
+      </Head>
       <HomeHeader />
       {/* <OurBrands/> */}
 			<main>
