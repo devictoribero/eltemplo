@@ -236,7 +236,7 @@ function HomeTagContact({icon, href, children}) {
 
         
         a:not(:first-child) {
-          margin-left: 0.35rem;
+          margin-left: 0.25rem;
         }
         
         a:hover {

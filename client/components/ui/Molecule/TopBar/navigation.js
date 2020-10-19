@@ -98,7 +98,7 @@ export const Navigation = () => {
               <RiTwitterLine size={24} aria-hidden="true"/>
             </NavigationLink>
             <NavigationLink
-              href='/'
+              href='https://discord.gg/k87Y7ff'
               target='_blank'
               title="link to the Discord account Templo Gaming">
               <RiDiscordLine size={24} aria-hidden="true"/>
