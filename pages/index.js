@@ -410,7 +410,7 @@ function FindUs() {
         <Title size={titleSizes.l} as={titleTags.h4}>Cuando estamos abiertos</Title>
         <div className='schedule'>
           <Typography size='large' spacelessTop spacelessBottom>
-            De lunes a domingo <time>09:00h</time> a <time>22:30h</time>
+            De lunes a domingo <time>09:00h</time> a <time>21:00h</time>
           </Typography>
         </div>
 
