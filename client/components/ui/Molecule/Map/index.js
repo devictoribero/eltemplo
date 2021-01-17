@@ -12,7 +12,7 @@ export default function MyMap({
 }) {
 	return (
 		<div id={id}>
-			<Map center={center} zoom={zoom} scrollWheelZoom={false}>
+			<Map center={center} zoom={zoom} scrollWheelZoom={false} touchZoom={false}>
 				<div>
 					<TileLayer
 						url={`https://{s}.tile.jawg.io/jawg-dark/{z}/{x}/{y}{r}.png?access-token=${MAP_ACCESS_TOKEN}`} />
