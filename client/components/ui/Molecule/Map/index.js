@@ -11,14 +11,14 @@ export default function MyMap({
 	zoom = 15,
 }) {
 	let isDraggingAllowed = false
-	let isTagAllowed = false
+	let isTapAllowed = false
 	const isClient = typeof window !== 'undefined'
 
 
 	if (isClient) {
-		if (isTouchableDevice()) {
+		if (!isTouchableDevice()) {
 			isDraggingAllowed = true
-			isTagAllowed= true
+			isTapAllowed= true
 		}
 	}
 
@@ -28,7 +28,7 @@ export default function MyMap({
 				center={center}
 				zoom={zoom}
 				dragging={isDraggingAllowed}
-				tap={isTagAllowed}
+				tap={isTapAllowed}
 				scrollWheelZoom={false}
 				touchZoom={true}>
 				<div>
