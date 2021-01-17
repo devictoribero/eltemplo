@@ -44,7 +44,12 @@ export function Title ({
 		<Heading className={classes} {...rest}>
 			{icon}
 			{children}
-			<style jsx>{`
+      <style jsx>{`
+        h4, h5,h6 {
+          letter-spacing: 1.5px !important;
+          font-weight: 500 !important;
+        }
+
 				.title {
 					text-transform: uppercase;
 				}

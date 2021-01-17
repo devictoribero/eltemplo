@@ -21,7 +21,7 @@ export const NavigationLink = ({
             font-weight: 500;
             mine-height: 48px;
             text-decoration: none;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             border-radius: 3px;
             font-family: var(--ff-title);
             font-variant: all-small-caps;

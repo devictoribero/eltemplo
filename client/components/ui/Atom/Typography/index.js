@@ -20,11 +20,12 @@ export function Typography({
 		<>
 			<p className={classes} {...rest}>{children}</p>
 			<style jsx>{`
-      p {
-        line-height: 1.5;
-        letter-spacing: 0.25px;
-				color: #e0e1e2;
-      }
+				p {
+					line-height: 1.5;
+					letter-spacing: 0.25px;
+					color: #e0e1e2;
+					font-weight: 600;
+				}
 
 			.is--spaceless-top {
 				margin-top: 0 !important;

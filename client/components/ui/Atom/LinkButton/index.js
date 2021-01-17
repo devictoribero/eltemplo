@@ -70,6 +70,7 @@ export function LinkButton({
           font-family: var(--ff-title);
           font-weight: bold;
           text-decoration: none;
+          letter-spacing: 1.5px;
           
           cursor: pointer;
           transition: box-shadow ease-out 0.15s, background-color ease-out 0.15s, border-color ease-out 0.15s;

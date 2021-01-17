@@ -585,11 +585,13 @@ function ContactUs() {
         .ContactUs-field:last-child {margin-bottom: 3rem;}
 
         label {
-          font-weight: 600;
+          font-weight: 500;
           font-family: var(--ff-title);
           margin-bottom: 0.5rem;
           text-transform: uppercase;
           display: block;
+          letter-spacing: 1.5px;
+          font-size: 1rem;
         }
 
         .messageHasContacted {
@@ -713,12 +715,11 @@ function Footer() {
           align-items: center;
           cursor: pointer;
           color: white;
-          font-weight: 500;
+          font-weight: 600;
           text-decoration: none;
-          font-family: var(--ff-title);
-          font-variant: all-small-caps;
+          font-family: var(--ff-text);
           padding: 0.5rem 0;
-          font-size: 1.15rem;
+          font-size: 1rem;
         }
         
         a:focus {outline: none;}
