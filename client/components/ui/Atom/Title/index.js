@@ -68,7 +68,7 @@ export function Title ({
 				}
 				
 				.is--giant {
-					font-size: 2.5rem;
+					font-size: 2.75rem;
 					font-weight: 900;
 					margin-bottom: 1.35rem;
 					margin-top: 5rem;
@@ -121,7 +121,7 @@ export function Title ({
 
 				@media screen and (min-width: 768px) {
 					.is--giant {
-						font-size: 3.5rem;
+						font-size: 4.5rem;
 						line-height: 1.15;
 						font-weight: 900;
 						margin-bottom: 1.35rem;
@@ -172,9 +172,9 @@ export function Title ({
 					}
 				}
 
-        .is--left {text-align: left;}
-        .is--center {text-align: center;}
-        .is--right {text-align: right;}
+        .is--left { text-align: left; }
+        .is--center { text-align: center; }
+        .is--right { text-align: right; }
       `}</style>
 		</Heading>
 	)

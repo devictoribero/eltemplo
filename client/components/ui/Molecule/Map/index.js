@@ -47,8 +47,9 @@ export default function MyMap({
 				#${id} {
 					height: ${height};
 					width: ${width};
-					border-radius: 5px;
 					overflow: hidden;
+					box-shadow: 0 10px 17px -8px var(--c-background-dark);
+					border-radius: 10px;
 				}
 
 				h2 {

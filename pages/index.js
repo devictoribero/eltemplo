@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import {useState} from 'react'
+import {useState, useEffect, useRef} from 'react'
 import {Layout} from "../client/components/ui/Organism/Layout"
 import {Button} from "../client/components/ui/Atom/Button"
 import {LinkButton} from "../client/components/ui/Atom/LinkButton"
@@ -9,6 +9,7 @@ import {Title, titleSizes, titleTags} from "../client/components/ui/Atom/Title"
 import {RiInstagramLine, RiTwitterLine, RiMessage2Line} from 'react-icons/ri'
 import axios from 'axios'
 import Map from '../client/components/ui/Molecule/Map'
+import Video from 'client/components/ui/Atom/Video'
 
 const COORDINATES_EL_TEMPLO_GAMING =  [41.383494, 2.158061]
 
@@ -33,7 +34,7 @@ function Home () {
 			
       <style jsx>{`
          main {
-          padding-top: 3rem;
+          padding-top: 7.5rem;
           background-image: url(/images/wallpaper-malzahar.jpg);
           background-image: linear-gradient(to bottom, rgba(26,26,46,0.8), rgba(26,26,46,1)), url(/images/wallpaper-malzahar.jpg);
           background-size: cover;  
@@ -63,62 +64,83 @@ function HomeHeader() {
     <section>
       <div className="home-hero-overlay"/>
       <Container>
-        <div className='HomeHeader-inner'>
-          <Title
-            size={titleSizes.giant}
-            as={titleTags.h1}
-            spacelessTop>
-            El Templo eSports
-          </Title>
-          <p>Te gustan los eSports? Te gusta jugar? Entonces también te gustaremos nosotros. Ven a conocernos!</p>
-          <div className='HomeHeader-buttons'>
-            <LinkButton
-              href='#find-us'
-              onClick={e => handleClick(e, '#find-us')}
-              theme='primary'
-              size='large'
-              style={{marginRight: '0.5rem'}}>
-              Donde estamos
-            </LinkButton>
-            <LinkButton
-              href='#contact'
-              onClick={e => handleClick(e, '#contact')}
-              theme='accent'
-              size='large'>
-              Contactanos
-            </LinkButton>
-          </div>
+        <div className='home-hero-displayer'>
+          <div className='HomeHeader-inner'>
+            <Title
+              size={titleSizes.giant}
+              as={titleTags.h1}
+              spacelessTop>
+              El Templo eSports
+            </Title>
+            <p>Te gustan los eSports? Te gusta jugar? Entonces también te gustaremos nosotros. Ven a conocernos!</p>
+            <div className='HomeHeader-buttons'>
+              <LinkButton
+                href='#find-us'
+                onClick={e => handleClick(e, '#find-us')}
+                theme='primary'
+                size='large'
+                style={{marginRight: '0.5rem'}}>
+                Donde estamos
+              </LinkButton>
+              <LinkButton
+                href='#contact'
+                onClick={e => handleClick(e, '#contact')}
+                theme='accent'
+                size='large'>
+                Contactanos
+              </LinkButton>
+            </div>
           
-          <div className='HomeHeader-tags'>
-            <HomeTagContact
-              icon={<RiInstagramLine size={16}/>}
-              href='https://www.instagram.com/temploesports/'>
-              temploesports
-            </HomeTagContact>
-            <HomeTagContact
-              icon={<RiTwitterLine size={16}/>}
-              href='https://twitter.com/TemploEsports'>
-              temploesports
-            </HomeTagContact>
-            <HomeTagContact
-              icon={<RiMessage2Line size={16}/>}
-              href='tel:+34685478720'>
-              685478720
-            </HomeTagContact>
+            <div className='HomeHeader-tags'>
+              <HomeTagContact
+                icon={<RiInstagramLine size={16}/>}
+                href='https://www.instagram.com/temploesports/'>
+                temploesports
+              </HomeTagContact>
+              <HomeTagContact
+                icon={<RiTwitterLine size={16}/>}
+                href='https://twitter.com/TemploEsports'>
+                temploesports
+              </HomeTagContact>
+              <HomeTagContact
+                icon={<RiMessage2Line size={16}/>}
+                href='tel:+34685478720'>
+                685478720
+              </HomeTagContact>
+            </div>
+          </div>
+          <div className='video-wrapper'>
+            <Video src="/videos/el-templo-presentation.mp4" type="video/mp4"/>
           </div>
         </div>
       </Container>
       <style jsx>{`
         section {
           position: relative;
-          display: flex;
           align-items: center;
           min-height: 60vh;
           padding-top: calc(3rem + 75px);
           padding-bottom: 4rem;
           box-sizing: border-box;
+          display: flex;
+          align-items: center;
         }
- 
+        
+        .home-hero-displayer {
+          display: flex;
+          flex-direction: column;
+        }
+        
+        .video-wrapper {
+          display: block;
+          margin-top: 4rem;
+          margin-bottom: -10rem;
+          animation: fromBottom 0.35s ease-in, fadein .5s ease-in;
+          animation-delay: 0.5s;
+          animation-fill-mode: forwards;
+          opacity: 0;
+        }
+
         .home-hero-overlay {
           background-image: url('https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80');
           background-image: linear-gradient(180deg, rgba(26,26,46,1), rgba(26,26,46,0.5)), url('https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80');
@@ -149,6 +171,11 @@ function HomeHeader() {
           animation-delay: 0.25s;
           animation-fill-mode: forwards;
           opacity: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          margin-top: 2rem;
         }
 
         @keyframes fromBottom {
@@ -174,6 +201,7 @@ function HomeHeader() {
           font-size: 1.25rem;
           line-height: 1.5;
           margin-top: 0;
+          max-width: 600px;
         }
 
         .HomeHeader-buttons {
@@ -187,21 +215,13 @@ function HomeHeader() {
 
         @media screen and (min-width: 768px) {
           section {
-            min-height: 70vh;
-          }
-
-          .HomeHeader-inner {
-            max-width: 550px;
+            min-height: 90vh;
           }
         }
 
         @media screen and (min-width: 992px) {
           section {
             min-height: 95vh;
-          }
-
-          .HomeHeader-inner {
-            max-width: 600px;
           }
 
           .HomeHeader-buttons {
@@ -452,18 +472,11 @@ function FindUs() {
           font-weight: bold;
         }
 
-        #map-wrapper {
-          border-radius: 10px;
-          border: 10px solid var(--c-background);
-          box-shadow: 0 10px 15px 5px var(--c-background-dark);
-        }
-
         #map {
           position: relative;
           width: 100%;
           height: 400px;
-          border-radius: 10px;
-          background-color: var(--c-background-pale);
+          background-color: var(--c-background-dark);
         }
 
         @media screen and (min-width: 768px) {
